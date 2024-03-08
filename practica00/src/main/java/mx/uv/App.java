@@ -9,5 +9,6 @@ public class App
         System.out.println( "Hello World!" );
 
         get("/", (request, response)->"hola");
+        get("/hola2", (request, response)->"hola2");
     }
 }
