@@ -7,7 +7,7 @@ namespace celciusIn
 	public interface CelciusIn
     {
 		[OperationContract]
-		public int CelciusaF(int grados);
+		public double CelciusaF(double grados);
 
     }
 }

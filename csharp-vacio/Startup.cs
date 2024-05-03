@@ -15,7 +15,7 @@ using celciusIn;
 using SoapCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace practica03
+namespace csharp_vacio
 {
     public class Startup
     {
@@ -24,8 +24,8 @@ namespace practica03
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSoapCore();
-            services.TryAddSingleton<fahrenheitIn,fahrenheit>();
-            services.TryAddSingleton<celciusIn,celcius>();
+            services.TryAddSingleton<FahrenheitIn, fahrenheit.Fahrenheit>();
+            services.TryAddSingleton<CelciusIn, celcius.Celcius>();
             services.AddMvc();
         }
 
@@ -40,9 +40,9 @@ namespace practica03
             app.UseRouting();
 
 			app.UseEndpoints(endpoints => {
-				endpoints.UseSoapEndpoint<fahrenheitIn>("/fahrenheitACelcius.jl", new SoapEncoderOptions(), SoapSerializer.DataContractSerializer);
-				endpoints.UseSoapEndpoint<celciusIn>("/celciusAfahrenheit.jl", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
-			});
+                endpoints.UseSoapEndpoint<FahrenheitIn>("/fahrenheitACelcius.jl", new SoapEncoderOptions(), SoapSerializer.DataContractSerializer);
+                endpoints.UseSoapEndpoint<CelciusIn>("/celciusAfahrenheit.jl", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+            });
         }
     }
 }
